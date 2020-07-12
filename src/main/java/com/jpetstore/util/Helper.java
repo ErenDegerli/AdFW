@@ -57,10 +57,9 @@ public class Helper {
     public static synchronized boolean takeElementScreenShot(WebElement element,
                                                              String name) {
 
-        boolean isScreenShot = PropertyReader.getInstance().getProperty(PropKey.ELEMENT_SCREEN_SHOT.getPropVal())
-                .equalsIgnoreCase("ENABLE");
+        String getElementScreenShot = SystemPropertyHelper.getElementScreenShotValue();
 
-        if(isScreenShot) {
+        if(getElementScreenShot.equalsIgnoreCase("ENABLE")) {
             attachElementScreenShot(element,name);
             return true;
         }
@@ -70,5 +69,15 @@ public class Helper {
     @Attachment(value = "{name}", type = "image/png")
     private static synchronized byte[] attachElementScreenShot(WebElement element, String name) {
         return element.getScreenshotAs(OutputType.BYTES);
+    }
+
+    public static boolean isRemote() {
+        boolean isRemote = PropertyReader.getInstance().getProperty(PropKey.REMOTE.getPropVal())
+                .equalsIgnoreCase("TRUE");
+
+        if(isRemote) {
+            return true;
+        }
+        return false;
     }
 }

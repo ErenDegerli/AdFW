@@ -1,10 +1,14 @@
 package com.jpetstore.driver;
 
+import com.jpetstore.util.Helper;
 import com.jpetstore.util.PropKey;
 import com.jpetstore.util.PropertyReader;
 import com.jpetstore.util.TimeUtil;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import static com.jpetstore.util.TimeUtil.getImplicitWait;
@@ -23,6 +27,16 @@ public class DriverFactory {
     public static WebDriver getDriver() {
 
         if(driver == null) {
+
+            if(Helper.isRemote()) {
+                try {
+                    driverThreadLocal.set(new RemoteWebDriver(new URL(""),
+                            getBrowser().getBrowserCapabilities()));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
+
             driverThreadLocal.set(getBrowser().getWebDriver());
         }
         driverThreadLocal.get().manage().timeouts().implicitlyWait(getImplicitWait(), TimeUnit.SECONDS);

@@ -19,10 +19,10 @@
         <allure-maven.version>2.13.0</allure-maven.version>
         <group/>
         <!-- SureFire properties-->
-        <surefire.forkCount>1</surefire.forkCount>
+        <surefire.forkCount>1C</surefire.forkCount>
         <surefire.reuseForks>true</surefire.reuseForks>
-        <surefire.threadCount/>
-        <surefire.parallel/>
+        <surefire.threadCount>3</surefire.threadCount>
+        <surefire.parallel>methods</surefire.parallel>
     </properties>
 
     <dependencies>
@@ -178,7 +178,7 @@
                     <groups>${group}</groups>
 
                     <systemPropertyVariables>
-                        <elementScreenShot>DISABLE</elementScreenShot>
+                        <elementScreenShot>ENABLE</elementScreenShot>
                         <hubUrl/>
                         <remote/>
                         <browser/>

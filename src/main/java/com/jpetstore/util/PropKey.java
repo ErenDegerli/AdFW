@@ -20,7 +20,10 @@ public enum PropKey {
 
     //Screenshot
     SCREEN_SHOT("screenShot"),
-    ELEMENT_SCREEN_SHOT("elementScreenShot");
+    ELEMENT_SCREEN_SHOT("elementScreenShot"),
+
+    //Selenium Grid
+    REMOTE("remote");
 
     private String propVal;
 
