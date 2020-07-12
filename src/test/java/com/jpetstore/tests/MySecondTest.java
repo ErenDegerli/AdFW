@@ -7,10 +7,12 @@ import org.junit.jupiter.api.*;
 import static com.jpetstore.util.PropKey.PORT;
 import static com.jpetstore.util.PropKey.URL;
 
+@Disabled
 @DisplayName("My Browser Tests")
 @DisplayNameGeneration(DisplayNameGenerator.Standard.class)
 public class MySecondTest extends DriverManager {
 
+    @Disabled
     @Test
     @DisplayName("This is my second selenium test!")
     void launchBrowser() throws InterruptedException {

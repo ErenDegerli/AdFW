@@ -67,50 +67,24 @@
         </dependency>
 
         <!--Allure Reporting Dependencies -->
-
-
         <dependency>
-
             <groupId>io.qameta.allure</groupId>
-
             <artifactId>allure-junit5</artifactId>
-
             <version>${allure-junit5.version}</version>
-
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-
-
         <dependency>
-
             <groupId>org.seleniumhq.selenium</groupId>
-
             <artifactId>selenium-java</artifactId>
-
             <version>4.0.0-alpha-4</version>
-
         </dependency>
 
-
         <dependency>
-
             <groupId>io.github.bonigarcia</groupId>
-
             <artifactId>webdrivermanager</artifactId>
-
             <version>3.8.1</version>
-
             <scope>test</scope>
-
-        </dependency>
-
-
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>3.8.1</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -120,12 +94,21 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>3.8.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Generating random login credentials -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
 
+        <!-- Re-runner provides iteration for the specific test scenarios -->
         <dependency>
             <groupId>io.github.artsok</groupId>
             <artifactId>rerunner-jupiter</artifactId>
@@ -187,6 +170,7 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+
                     <parallel>${surefire.parallel}</parallel>
                     <forkCount>${surefire.forkCount}</forkCount>
                     <reuseForks>${surefire.reuseForks}</reuseForks>

@@ -1,18 +1,17 @@
 package com.jpetstore.pages;
 
 import com.jpetstore.driver.DriverManager;
+import com.jpetstore.util.Helper;
+import com.jpetstore.util.LogHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
-
 import static com.jpetstore.util.TimeUtil.getExplicitWait;
 
 public class HtmlPageObject extends DriverManager {
@@ -116,6 +115,9 @@ public class HtmlPageObject extends DriverManager {
         WebElement textBox = findElementBy(by);
         textBox.clear();
         textBox.sendKeys(text);
+        Helper.takeElementScreenShot(textBox,"textbox");
+
+        LogHelper.logToReport("Typing test: " + text + " inside the text box with locator: " + by);
     }
 
     /**
@@ -126,14 +128,17 @@ public class HtmlPageObject extends DriverManager {
     public void enterTextIntoTextBox(WebElement element, String text) {
         element.clear();
         element.sendKeys(text);
+        Helper.takeElementScreenShot(element,"textbox");
+
+        LogHelper.logToReport("Typing test: " + text + " inside the text box with locator: " + element.toString());
     }
 
     /**
      * Method to click a link or button
      * @param by
-     * @param text
+     * @param
      */
-    public void clickLinkOrBtn(By by, String text) {
+    public void clickLinkOrBtn(By by) {
         WebElement element = findElementBy(by);
         element.click();
     }
@@ -141,9 +146,9 @@ public class HtmlPageObject extends DriverManager {
     /**
      * Method to click a link or button
      * @param element
-     * @param text
+     * @param
      */
-    public void clickLinkOrBtn(WebElement element, String text) {
+    public void clickLinkOrBtn(WebElement element) {
         element.click();
     }
 

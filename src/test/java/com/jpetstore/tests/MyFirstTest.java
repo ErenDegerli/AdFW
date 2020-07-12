@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 import static com.jpetstore.util.PropKey.PORT;
 import static com.jpetstore.util.PropKey.URL;
 
+@Disabled
 @DisplayName("My Browser Tests")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class MyFirstTest extends DriverManager {
